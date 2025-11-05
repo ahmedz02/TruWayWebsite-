@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import type { Metadata } from 'next'
+import HeroCarousel from './components/HeroCarousel'
 
 export const metadata: Metadata = {
   title: 'Tru Way Community Center | Buffalo NY | After-School & Summer Programs',
@@ -7,31 +8,35 @@ export const metadata: Metadata = {
 }
 
 export default function Home() {
-  // To use a background image, uncomment and set the image URL:
-  // const heroBackgroundImage = '/path/to/your/image.jpg'
-  const heroBackgroundImage = '/heroimage.jpg' // Leave empty for gradient background
-
   return (
     <main className="min-h-screen flex flex-col">
-      {/* Hero Section with Optional Background */}
-      <section 
-        className={`relative flex-1 flex flex-col items-center justify-center px-6 py-32 min-h-[85vh] ${
-          heroBackgroundImage 
-            ? 'hero-background' 
-            : 'bg-gradient-to-br from-primary-50 via-white to-accent-50'
-        }`}
-        style={heroBackgroundImage ? { backgroundImage: `url(${heroBackgroundImage})` } : {}}
-      >
-        <div className={`relative z-10 max-w-4xl mx-auto text-center ${
-          heroBackgroundImage ? 'text-white' : ''
-        }`}>
+      {/* Hero Section with Carousel */}
+      <section className="relative flex-1 flex flex-col items-center justify-center px-6 py-32 min-h-[85vh]">
+        {/* Carousel Background */}
+        <div className="absolute inset-0">
+          <HeroCarousel />
+        </div>
+
+        {/* Logo in Corner */}
+        <div className="absolute top-3 left-3 md:top-4 md:left-4 z-20">
+          <img 
+            src="/logo.jpg" 
+            alt="Tru Way Community Center Logo" 
+            className="h-8 md:h-10 lg:h-12 w-auto object-contain drop-shadow-lg"
+          />
+        </div>
+
+        {/* Content Overlay */}
+        <div className="relative z-10 max-w-4xl mx-auto text-center text-white">
           <div className="mb-8">
-            <h1 className={`text-5xl md:text-6xl lg:text-7xl font-light mb-6 tracking-tight ${
-              heroBackgroundImage ? 'text-white drop-shadow-lg' : 'text-gray-900'
-            }`}>
-              Tru Way Community Center
-            </h1>
-            <div className="w-24 h-1 bg-gradient-to-r from-primary-500 to-accent-500 mx-auto mb-16"></div>
+            <div className="relative inline-block">
+              <h1 className="hero-title text-5xl md:text-6xl lg:text-7xl mb-6 tracking-tight relative z-10">
+                Tru Way Community Center
+              </h1>
+              {/* Glow effect behind text */}
+              <div className="absolute inset-0 blur-2xl opacity-30 bg-gradient-to-r from-primary-400 via-white to-accent-400 -z-10"></div>
+            </div>
+            <div className="w-32 h-1.5 bg-gradient-to-r from-primary-400 via-white to-accent-400 mx-auto mb-16 rounded-full shadow-lg"></div>
           </div>
 
           {/* Contact Button */}
@@ -48,9 +53,7 @@ export default function Home() {
       <section className="py-20 px-6 bg-white">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className={`text-4xl md:text-5xl font-light mb-4 ${
-              heroBackgroundImage ? 'text-gray-900' : 'text-gray-800'
-            }`}>
+            <h2 className="text-4xl md:text-5xl font-light mb-4 text-gray-800">
               About Us
             </h2>
             <div className="w-20 h-1 bg-gradient-to-r from-primary-500 to-accent-500 mx-auto"></div>
