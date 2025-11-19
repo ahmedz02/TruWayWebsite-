@@ -17,6 +17,8 @@ export default function Contact() {
     message: '',
   })
   const [submitted, setSubmitted] = useState(false)
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [submitError, setSubmitError] = useState('')
 
   const validatePhone = (phone: string): boolean => {
     // Remove all non-digit characters
@@ -99,13 +101,40 @@ export default function Contact() {
     }
 
     // Form is valid, submit it
-    console.log('Form submitted:', formData)
-    setSubmitted(true)
-    setFormData({ name: '', email: '', phone: '', message: '' })
-    setErrors({ name: '', email: '', phone: '', message: '' })
-    
-    // Reset success message after 5 seconds
-    setTimeout(() => setSubmitted(false), 5000)
+    setIsSubmitting(true)
+    setSubmitError('')
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      })
+
+      const data = await response.json()
+
+      if (!response.ok) {
+        throw new Error(data.error || 'Failed to send message')
+      }
+
+      // Success
+      setSubmitted(true)
+      setFormData({ name: '', email: '', phone: '', message: '' })
+      setErrors({ name: '', email: '', phone: '', message: '' })
+      
+      // Reset success message after 5 seconds
+      setTimeout(() => setSubmitted(false), 5000)
+    } catch (error) {
+      setSubmitError(
+        error instanceof Error 
+          ? error.message 
+          : 'Failed to send message. Please try again later.'
+      )
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   return (
@@ -141,6 +170,17 @@ export default function Contact() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
                 Thank you for your message. We'll get back to you soon!
+              </p>
+            </div>
+          ) : null}
+
+          {submitError ? (
+            <div className="bg-red-50 border border-red-200 p-6 rounded-lg mb-6">
+              <p className="text-red-800 flex items-center gap-2">
+                <svg className="w-5 h-5 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                {submitError}
               </p>
             </div>
           ) : null}
@@ -236,9 +276,10 @@ export default function Contact() {
 
             <button
               type="submit"
-              className="w-full px-10 py-4 bg-gradient-to-r from-primary-600 to-primary-700 text-white text-lg font-medium rounded-lg hover:from-primary-700 hover:to-primary-800 transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
+              disabled={isSubmitting}
+              className="w-full px-10 py-4 bg-gradient-to-r from-primary-600 to-primary-700 text-white text-lg font-medium rounded-lg hover:from-primary-700 hover:to-primary-800 transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
             >
-              Send Message
+              {isSubmitting ? 'Sending...' : 'Send Message'}
             </button>
           </form>
         </div>
@@ -302,7 +343,7 @@ export default function Contact() {
           {/* Copyright */}
           <div className="pt-8 border-t border-gray-200 text-center">
             <p className="text-sm text-gray-600">
-              © {new Date().getFullYear()} Tru Way Community Center. All rights reserved.
+              © {new Date().getFullYear()} Tru-Way Community Center Inc. All rights reserved.
             </p>
           </div>
         </div>

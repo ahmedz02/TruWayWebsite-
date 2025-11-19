@@ -2,12 +2,12 @@ export default function StructuredData() {
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'CommunityOrganization',
-    name: 'Tru Way Community Center',
-    alternateName: 'Tru Way',
+    name: 'Tru-Way Community Center Inc.',
+    alternateName: 'Tru-Way Inc.',
     url: 'https://truwaycommunitycenter.com',
     logo: 'https://truwaycommunitycenter.com/heroimage.jpg',
     image: 'https://truwaycommunitycenter.com/heroimage.jpg',
-    description: 'Tru Way Community Center serves youth and families in Western New York with after-school programs, summer camps, and community support services.',
+    description: 'Tru-Way Community Center Inc. serves youth and families in Western New York with after-school programs, summer camps, and community support services.',
     address: {
       '@type': 'PostalAddress',
       streetAddress: '2056 Genesee Street',

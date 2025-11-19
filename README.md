@@ -23,7 +23,7 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 - Beautiful hero section with optional background image support
 - Elegant color scheme with blue and gold accents
 - Mission statement section with feature cards
-- Contact form page with enhanced styling
+- Contact form page with email functionality
 - Responsive design for all devices
 - Modern, minimal aesthetic with visual interest
 
@@ -55,3 +55,32 @@ Edit the color scheme in `tailwind.config.js`:
 - Mission statement: `app/page.tsx` (lines 59-64)
 - Feature cards: `app/page.tsx` (lines 68-98)
 - Contact form fields: `app/contact/page.tsx`
+
+## Email Configuration
+
+The contact form sends emails to both `truway@roadrunner.com` and `truway2016@gmail.com` when submitted.
+
+### For Local Development
+
+Create a `.env.local` file in the root directory with:
+
+```
+SMTP_HOST=smtp.roadrunner.com
+SMTP_PORT=587
+SMTP_USER=truway@roadrunner.com
+SMTP_PASSWORD=your_email_password_here
+SMTP_FROM=truway@roadrunner.com
+```
+
+### For Netlify Deployment
+
+1. Go to your Netlify Dashboard
+2. Navigate to Site Settings > Environment Variables
+3. Add the following environment variables:
+   - `SMTP_HOST` = `smtp.roadrunner.com`
+   - `SMTP_PORT` = `587`
+   - `SMTP_USER` = `truway@roadrunner.com`
+   - `SMTP_PASSWORD` = (your email password)
+   - `SMTP_FROM` = `truway@roadrunner.com`
+
+**Note:** Make sure to use your actual RoadRunner email password for `SMTP_PASSWORD`.

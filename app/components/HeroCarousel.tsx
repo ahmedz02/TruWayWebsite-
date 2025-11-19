@@ -64,8 +64,6 @@ export default function HeroCarousel() {
               backgroundRepeat: 'no-repeat',
             }}
           >
-            {/* Gradient Overlay */}
-            <div className="absolute inset-0 bg-gradient-to-br from-primary-600/85 to-accent-500/75"></div>
           </div>
         ))}
       </div>

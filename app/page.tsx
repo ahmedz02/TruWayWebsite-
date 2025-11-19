@@ -3,8 +3,8 @@ import type { Metadata } from 'next'
 import HeroCarousel from './components/HeroCarousel'
 
 export const metadata: Metadata = {
-  title: 'Tru Way Community Center | Buffalo NY | After-School & Summer Programs',
-  description: 'Tru Way Community Center serves youth and families in Western New York with after-school programs, summer camps, and community support services. Located in Buffalo, NY since 2000.',
+  title: 'Tru-Way Community Center Inc. | Buffalo NY | After-School & Summer Programs',
+  description: 'Tru-Way Community Center Inc. serves youth and families in Western New York with after-school programs, summer camps, and community support services. Located in Buffalo, NY since 2000.',
 }
 
 export default function Home() {
@@ -21,7 +21,7 @@ export default function Home() {
         <div className="absolute top-3 left-3 md:top-4 md:left-4 z-20">
           <img 
             src="/logo.jpg" 
-            alt="Tru Way Community Center Logo" 
+            alt="Tru-Way Community Center Inc. Logo" 
             className="h-8 md:h-10 lg:h-12 w-auto object-contain drop-shadow-lg"
           />
         </div>
@@ -31,7 +31,7 @@ export default function Home() {
           <div className="mb-8">
             <div className="relative inline-block">
               <h1 className="hero-title text-5xl md:text-6xl lg:text-7xl mb-6 tracking-tight relative z-10">
-                Tru Way Community Center
+                Tru-Way Community Center Inc.
               </h1>
               {/* Glow effect behind text */}
               <div className="absolute inset-0 blur-2xl opacity-30 bg-gradient-to-r from-primary-400 via-white to-accent-400 -z-10"></div>
@@ -60,25 +60,24 @@ export default function Home() {
           </div>
           
           <div className="grid md:grid-cols-2 gap-8">
-            {/* History Card */}
-            <div className="bg-gradient-to-br from-primary-50 to-accent-50 rounded-2xl p-8 md:p-12 shadow-sm border border-primary-100">
-              <h3 className="text-2xl md:text-3xl font-light text-gray-900 mb-6 text-center">Our Story</h3>
-              <p className="text-lg md:text-xl font-light text-gray-700 leading-relaxed text-center">
-                Founded in 2000 under the leadership of Dr. Virginia Williams, Tru Way has 
-                served youth and families across Western New York for over two decades. We 
-                provide safe, supportive after-school and summer programs that inspire learning, 
-                build confidence, and strengthen our community.
-              </p>
-            </div>
-
             {/* Mission Card */}
             <div className="bg-gradient-to-br from-primary-50 to-accent-50 rounded-2xl p-8 md:p-12 shadow-sm border border-primary-100">
               <h3 className="text-2xl md:text-3xl font-light text-gray-900 mb-6 text-center">Our Mission</h3>
               <p className="text-lg md:text-xl font-light text-gray-700 leading-relaxed text-center">
-                We are dedicated to fostering a vibrant, inclusive community where individuals 
-                come together to share experiences, support one another, and create positive change. 
-                Through meaningful connections and collaborative action, we build a stronger, 
-                more united neighborhood for all.
+                To prepare, equip and empower at-risk youth and their families to address basic life skills, 
+                ensure economic self-sufficiency and lifelong growth, thereby, helping them to achieve their 
+                full potential while improving the quality of life in our community.
+              </p>
+            </div>
+
+            {/* Story Card */}
+            <div className="bg-gradient-to-br from-primary-50 to-accent-50 rounded-2xl p-8 md:p-12 shadow-sm border border-primary-100">
+              <h3 className="text-2xl md:text-3xl font-light text-gray-900 mb-6 text-center">Our Story</h3>
+              <p className="text-lg md:text-xl font-light text-gray-700 leading-relaxed text-center">
+                Founded in 2000 under the leadership of Dr. Virginia Williams, Tru-Way Inc. has 
+                served youth and families across Western New York for over two decades. Currently 
+                led by Executive Director Byron Trice, we provide safe, supportive after-school 
+                and summer programs that inspire learning, build confidence, and strengthen our community.
               </p>
             </div>
           </div>
@@ -190,7 +189,7 @@ export default function Home() {
           {/* Copyright */}
           <div className="pt-8 border-t border-gray-200 text-center">
             <p className="text-sm text-gray-600">
-              © {new Date().getFullYear()} Tru Way Community Center. All rights reserved.
+              © {new Date().getFullYear()} Tru-Way Community Center Inc. All rights reserved.
             </p>
           </div>
         </div>
