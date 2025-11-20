@@ -62,25 +62,31 @@ The contact form sends emails to both `truway@roadrunner.com` and `truway2016@gm
 
 ### For Local Development
 
-Create a `.env.local` file in the root directory with:
+1. Copy the example file:
+   ```bash
+   cp .env.example .env.local
+   ```
 
-```
-SMTP_HOST=smtp.roadrunner.com
-SMTP_PORT=587
-SMTP_USER=truway@roadrunner.com
-SMTP_PASSWORD=your_email_password_here
-SMTP_FROM=truway@roadrunner.com
-```
+2. Edit `.env.local` and add your actual RoadRunner email password:
+   ```
+   SMTP_PASSWORD=your_actual_password_here
+   ```
 
-### For Netlify Deployment
+3. The `.env.local` file is already gitignored, so your password won't be committed.
+
+### For Netlify Deployment (Production)
+
+**Important:** For security, you must set environment variables in Netlify (not in a committed .env file).
 
 1. Go to your Netlify Dashboard
-2. Navigate to Site Settings > Environment Variables
+2. Navigate to **Site Settings** → **Environment Variables**
 3. Add the following environment variables:
    - `SMTP_HOST` = `smtp.roadrunner.com`
    - `SMTP_PORT` = `587`
    - `SMTP_USER` = `truway@roadrunner.com`
-   - `SMTP_PASSWORD` = (your email password)
+   - `SMTP_PASSWORD` = (your RoadRunner email password)
    - `SMTP_FROM` = `truway@roadrunner.com`
 
-**Note:** Make sure to use your actual RoadRunner email password for `SMTP_PASSWORD`.
+4. After adding variables, trigger a new deployment
+
+**Note:** Never commit `.env.local` or any file with real passwords. The `.env.example` file is safe to commit as it only contains placeholder values.
