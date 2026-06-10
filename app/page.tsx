@@ -39,13 +39,21 @@ export default function Home() {
             <div className="w-32 h-1.5 bg-gradient-to-r from-primary-400 via-white to-accent-400 mx-auto mb-16 rounded-full shadow-lg"></div>
           </div>
 
-          {/* Contact Button */}
-          <Link 
-            href="/contact"
-            className="inline-block px-12 py-4 bg-gradient-to-r from-primary-600 to-primary-700 text-white text-lg font-normal rounded-lg hover:from-primary-700 hover:to-primary-800 transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 mb-20"
-          >
-            Get in Touch
-          </Link>
+          {/* Action Buttons */}
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-20">
+            <Link 
+              href="/contact"
+              className="inline-block px-12 py-4 bg-gradient-to-r from-primary-600 to-primary-700 text-white text-lg font-normal rounded-lg hover:from-primary-700 hover:to-primary-800 transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
+            >
+              Get in Touch
+            </Link>
+            <Link 
+              href="/summer-camp"
+              className="inline-block px-12 py-4 bg-white/95 text-primary-700 text-lg font-normal rounded-lg hover:bg-white transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 border border-white/50"
+            >
+              Summer Camp Forms
+            </Link>
+          </div>
         </div>
       </section>
 
@@ -136,7 +144,7 @@ export default function Home() {
         <div className="max-w-4xl mx-auto">
           {/* Contact Information */}
           <div className="flex flex-wrap justify-center items-center gap-6 md:gap-8 mb-8">
-            {/* Phone */}
+            {/* Byron Trice - Office */}
             <a 
               href="tel:+17168920258" 
               className="flex items-center gap-2 text-gray-700 hover:text-primary-600 transition-colors text-sm md:text-base"
@@ -144,7 +152,18 @@ export default function Home() {
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
               </svg>
-              <span>(716) 892-0258</span>
+              <span>Byron Trice — Office: (716) 892-0258</span>
+            </a>
+
+            {/* Byron Trice - Cell */}
+            <a 
+              href="tel:+17165639863" 
+              className="flex items-center gap-2 text-gray-700 hover:text-primary-600 transition-colors text-sm md:text-base"
+            >
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
+              </svg>
+              <span>Cell: (716) 563-9863</span>
             </a>
 
             {/* Email */}

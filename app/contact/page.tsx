@@ -159,8 +159,39 @@ export default function Contact() {
             </h1>
             <div className="w-20 h-1 bg-gradient-to-r from-primary-500 to-accent-500 mx-auto mb-4"></div>
             <p className="text-lg font-light text-gray-600">
-              We'd love to hear from you. Send us a message and we'll respond as soon as possible.
+              We&apos;d love to hear from you. Send us a message and we&apos;ll respond as soon as possible.
             </p>
+          </div>
+
+          <div className="mb-10 bg-gradient-to-br from-primary-50 to-accent-50 border border-primary-100 rounded-xl p-6 md:p-8">
+            <h2 className="text-lg font-medium text-gray-900 mb-4 text-center">People to Reach Out To</h2>
+            <div className="text-center">
+              <p className="text-xl font-light text-gray-900 mb-3">Byron Trice</p>
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8">
+                <a
+                  href="tel:+17168920258"
+                  className="flex items-center gap-2 text-gray-700 hover:text-primary-600 transition-colors"
+                >
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                  </svg>
+                  <span>
+                    <span className="text-sm text-gray-500">Office:</span> (716) 892-0258
+                  </span>
+                </a>
+                <a
+                  href="tel:+17165639863"
+                  className="flex items-center gap-2 text-gray-700 hover:text-primary-600 transition-colors"
+                >
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
+                  </svg>
+                  <span>
+                    <span className="text-sm text-gray-500">Cell:</span> (716) 563-9863
+                  </span>
+                </a>
+              </div>
+            </div>
           </div>
 
           {submitted ? (
@@ -290,7 +321,7 @@ export default function Contact() {
         <div className="max-w-4xl mx-auto">
           {/* Contact Information */}
           <div className="flex flex-wrap justify-center items-center gap-6 md:gap-8 mb-8">
-            {/* Phone */}
+            {/* Byron Trice - Office */}
             <a 
               href="tel:+17168920258" 
               className="flex items-center gap-2 text-gray-700 hover:text-primary-600 transition-colors text-sm md:text-base"
@@ -298,7 +329,18 @@ export default function Contact() {
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
               </svg>
-              <span>(716) 892-0258</span>
+              <span>Byron Trice — Office: (716) 892-0258</span>
+            </a>
+
+            {/* Byron Trice - Cell */}
+            <a 
+              href="tel:+17165639863" 
+              className="flex items-center gap-2 text-gray-700 hover:text-primary-600 transition-colors text-sm md:text-base"
+            >
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
+              </svg>
+              <span>Cell: (716) 563-9863</span>
             </a>
 
             {/* Email */}
