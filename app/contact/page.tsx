@@ -81,18 +81,14 @@ export default function Contact() {
     setSubmitError('')
 
     try {
-      const formBody = new URLSearchParams({
-        'form-name': 'contact',
-        ...formData,
-      })
-
-      const response = await fetch('/', {
+      const response = await fetch('/api/contact', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: formBody.toString(),
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
       })
 
-      if (!response.ok) throw new Error('Submission failed')
+      const data = await response.json()
+      if (!response.ok) throw new Error(data.error || 'Failed to send message')
 
       setSubmitted(true)
       setFormData({ name: '', email: '', phone: '', message: '' })
@@ -107,14 +103,6 @@ export default function Contact() {
 
   return (
     <main className="min-h-screen flex flex-col bg-gradient-to-br from-primary-50 via-white to-accent-50">
-      {/* Hidden form for Netlify detection */}
-      <form name="contact" data-netlify="true" data-netlify-honeypot="bot-field" hidden>
-        <input type="text" name="name" />
-        <input type="email" name="email" />
-        <input type="tel" name="phone" />
-        <textarea name="message" />
-      </form>
-
       <div className="flex-1 flex flex-col items-center justify-center px-6 py-20 max-w-2xl mx-auto w-full">
         <Link
           href="/"
@@ -179,12 +167,7 @@ export default function Contact() {
           )}
 
           <form onSubmit={handleSubmit} className="space-y-6" noValidate>
-            <input type="hidden" name="form-name" value="contact" />
-            <div hidden>
-              <input name="bot-field" />
-            </div>
-
-            <div>
+<div>
               <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
                 Name <span className="text-red-500">*</span>
               </label>
