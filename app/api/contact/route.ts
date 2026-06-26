@@ -1,12 +1,13 @@
 import { NextRequest, NextResponse } from 'next/server'
-import nodemailer from 'nodemailer'
+import { Resend } from 'resend'
+
+const resend = new Resend(process.env.RESEND_API_KEY)
 
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json()
     const { name, email, phone, message } = body
 
-    // Validate required fields
     if (!name || !email || !phone || !message) {
       return NextResponse.json(
         { error: 'All fields are required' },
@@ -14,23 +15,6 @@ export async function POST(request: NextRequest) {
       )
     }
 
-    // Create transporter - using environment variables for email configuration
-    // For production, you'll need to set these in your Netlify environment variables
-    const transporter = nodemailer.createTransport({
-      host: process.env.SMTP_HOST || 'smtp.gmail.com',
-      port: parseInt(process.env.SMTP_PORT || '587'),
-      secure: false,
-      requireTLS: true,
-      auth: {
-        user: process.env.SMTP_USER || 'info@tru-way.com',
-        pass: process.env.SMTP_PASSWORD || '',
-      },
-      tls: {
-        rejectUnauthorized: false,
-      },
-    })
-
-    // Sanitize inputs to prevent XSS
     const sanitize = (str: string) => {
       return str
         .replace(/&/g, '&amp;')
@@ -45,10 +29,10 @@ export async function POST(request: NextRequest) {
     const sanitizedPhone = sanitize(phone)
     const sanitizedMessage = sanitize(message)
 
-    // Email content
-    const mailOptions = {
-      from: process.env.SMTP_FROM || 'info@tru-way.com',
-      to: ['info@tru-way.com', 'programs@tru-way.com'],
+    await resend.emails.send({
+      from: 'Tru-Way Website <info@tru-way.com>',
+      to: ['btrice@tru-way.com'],
+      replyTo: email,
       subject: `New Contact Form Submission from ${sanitizedName}`,
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
@@ -65,27 +49,11 @@ export async function POST(request: NextRequest) {
             </div>
           </div>
           <p style="color: #666; font-size: 12px; margin-top: 20px;">
-            This email was sent from the Tru-Way Community Center Inc. contact form.
+            This email was sent from the Tru-Way Community Center Inc. contact form at tru-way.com
           </p>
         </div>
       `,
-      text: `
-New Contact Form Submission
-
-Name: ${name}
-Email: ${email}
-Phone: ${phone}
-
-Message:
-${message}
-
----
-This email was sent from the Tru-Way Community Center Inc. contact form.
-      `,
-    }
-
-    // Send email
-    await transporter.sendMail(mailOptions)
+    })
 
     return NextResponse.json(
       { message: 'Email sent successfully' },
@@ -99,4 +67,3 @@ This email was sent from the Tru-Way Community Center Inc. contact form.
     )
   }
 }
-
