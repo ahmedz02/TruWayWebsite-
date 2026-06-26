@@ -17,11 +17,11 @@ export async function POST(request: NextRequest) {
     // Create transporter - using environment variables for email configuration
     // For production, you'll need to set these in your Netlify environment variables
     const transporter = nodemailer.createTransport({
-      host: process.env.SMTP_HOST || 'smtp.roadrunner.com',
+      host: process.env.SMTP_HOST || 'smtp.gmail.com',
       port: parseInt(process.env.SMTP_PORT || '587'),
       secure: false, // true for 465, false for other ports
       auth: {
-        user: process.env.SMTP_USER || 'truway@roadrunner.com',
+        user: process.env.SMTP_USER || 'info@tru-way.com',
         pass: process.env.SMTP_PASSWORD || '',
       },
     })
@@ -43,8 +43,8 @@ export async function POST(request: NextRequest) {
 
     // Email content
     const mailOptions = {
-      from: process.env.SMTP_FROM || 'truway@roadrunner.com',
-      to: ['truway@roadrunner.com', 'truway2016@gmail.com'],
+      from: process.env.SMTP_FROM || 'info@tru-way.com',
+      to: ['info@tru-way.com', 'programs@tru-way.com'],
       subject: `New Contact Form Submission from ${sanitizedName}`,
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">

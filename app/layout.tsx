@@ -30,14 +30,14 @@ export const metadata: Metadata = {
     address: false,
     telephone: false,
   },
-  metadataBase: new URL('https://truwaycommunitycenter.com'),
+  metadataBase: new URL('https://tru-way.com'),
   alternates: {
     canonical: '/',
   },
   openGraph: {
     title: 'Tru-Way Community Center Inc. | Buffalo NY | After-School & Summer Programs',
     description: 'Serving youth and families in Western New York with after-school programs, summer camps, and community support services since 2000.',
-    url: 'https://truwaycommunitycenter.com',
+    url: 'https://tru-way.com',
     siteName: 'Tru-Way Community Center Inc.',
     locale: 'en_US',
     type: 'website',
@@ -68,8 +68,8 @@ export const metadata: Metadata = {
     },
   },
   verification: {
-    // Add Google Search Console verification when available
-    // google: 'your-verification-code',
+    // Add your Google Search Console verification code to Netlify env vars as NEXT_PUBLIC_GSC_VERIFICATION
+    google: process.env.NEXT_PUBLIC_GSC_VERIFICATION,
   },
 }
 
@@ -78,8 +78,27 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
+  const gaId = process.env.NEXT_PUBLIC_GA_ID
+
   return (
     <html lang="en">
+      <head>
+        {gaId && (
+          <>
+            <script async src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`} />
+            <script
+              dangerouslySetInnerHTML={{
+                __html: `
+                  window.dataLayer = window.dataLayer || [];
+                  function gtag(){dataLayer.push(arguments);}
+                  gtag('js', new Date());
+                  gtag('config', '${gaId}');
+                `,
+              }}
+            />
+          </>
+        )}
+      </head>
       <body className="antialiased">
         <StructuredData />
         <Navbar />

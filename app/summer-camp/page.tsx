@@ -45,10 +45,10 @@ export default function SummerCampPage() {
             View or download our application forms below. When you&apos;re done, email your completed
             form to{' '}
             <a
-              href="mailto:truway2016@gmail.com?subject=Tru-Way%20Program%20Application"
+              href="mailto:programs@tru-way.com?subject=Tru-Way%20Program%20Application"
               className="text-primary-700 hover:text-primary-900 font-medium underline underline-offset-2"
             >
-              truway2016@gmail.com
+              programs@tru-way.com
             </a>
             , or return it in person at the community center.
           </p>
@@ -60,7 +60,7 @@ export default function SummerCampPage() {
             Email your filled-out application as a PDF or photo attachment.
           </p>
           <a
-            href="mailto:truway2016@gmail.com?subject=Tru-Way%20Program%20Application"
+            href="mailto:programs@tru-way.com?subject=Tru-Way%20Program%20Application"
             className="inline-flex items-center justify-center gap-2 px-8 py-3 bg-gradient-to-r from-primary-600 to-primary-700 text-white font-medium rounded-lg hover:from-primary-700 hover:to-primary-800 transition-all duration-200 shadow-lg hover:shadow-xl"
           >
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -71,7 +71,7 @@ export default function SummerCampPage() {
                 d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
               />
             </svg>
-            Send to truway2016@gmail.com
+            Send to programs@tru-way.com
           </a>
         </div>
 
@@ -190,13 +190,13 @@ export default function SummerCampPage() {
             </a>
 
             <a
-              href="mailto:truway2016@gmail.com?subject=Tru-Way%20Program%20Application"
+              href="mailto:programs@tru-way.com?subject=Tru-Way%20Program%20Application"
               className="flex items-center gap-2 text-gray-700 hover:text-primary-600 transition-colors text-sm md:text-base"
             >
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
               </svg>
-              <span>truway2016@gmail.com</span>
+              <span>programs@tru-way.com</span>
             </a>
 
             <a

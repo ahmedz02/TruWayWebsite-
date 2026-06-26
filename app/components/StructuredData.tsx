@@ -4,9 +4,9 @@ export default function StructuredData() {
     '@type': 'CommunityOrganization',
     name: 'Tru-Way Community Center Inc.',
     alternateName: 'Tru-Way Inc.',
-    url: 'https://truwaycommunitycenter.com',
-    logo: 'https://truwaycommunitycenter.com/heroimage.jpg',
-    image: 'https://truwaycommunitycenter.com/heroimage.jpg',
+    url: 'https://tru-way.com',
+    logo: 'https://tru-way.com/heroimage.jpg',
+    image: 'https://tru-way.com/heroimage.jpg',
     description: 'Tru-Way Community Center Inc. serves youth and families in Western New York with after-school programs, summer camps, and community support services.',
     address: {
       '@type': 'PostalAddress',
@@ -22,7 +22,7 @@ export default function StructuredData() {
       longitude: '-78.8294',
     },
     telephone: '+17168920258',
-    email: 'truway@roadrunner.com',
+    email: 'info@tru-way.com',
     foundingDate: '2000',
     founder: {
       '@type': 'Person',
